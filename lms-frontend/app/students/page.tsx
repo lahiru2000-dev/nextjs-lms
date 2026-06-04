@@ -16,6 +16,10 @@ function Student() {
         }
     }
 
+    useEffect(()=>{
+        getStudents();
+    },[])
+
 
   return (
     <div>page</div>
