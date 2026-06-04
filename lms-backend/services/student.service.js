@@ -35,4 +35,20 @@ const addStudent = async (req, res) => {
   }
 };
 
+const getStudent=async(req,res)=>{
+    try{
+        const result=await pool.query(`SELECT * FROM students`);
+        return res.status(200).json({
+            success:true,
+            students:result.rows
+        });
+    }catch(err){
+        console.error(err);
+        return res.status(500).json({
+            success:false,
+            message:"Server error"
+        });
+    }
+}
+
 module.exports = { addStudent };
