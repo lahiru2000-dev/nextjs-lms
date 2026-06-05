@@ -52,4 +52,23 @@ const getStudent=async(req,res)=>{
     }
 }
 
-module.exports = { addStudent, getStudent };
+
+//delete student
+const deleteStudent=async(req,res)=>{
+    try{
+        const {id}=req.params;
+        const result=await pool.query(`DELETE FROM students WHERE id=$1 RETURNING *`,[id]);
+        return res.status(200).json({
+            success:true,
+            student:result.rows[0]
+        });
+    }catch(err){
+        console.error(err);
+        return res.status(500).json({
+            success:false,
+            message:"Server error"
+        });
+    }
+}
+
+module.exports = { addStudent, getStudent, deleteStudent };
