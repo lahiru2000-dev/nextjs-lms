@@ -28,6 +28,23 @@ function Student() {
         }
     }
 
+    //add student
+    const addStudent = async (e: React.FormEvent<HTMLFormElement>)=>{
+        e.preventDefault();
+        try{
+            const payload={name,grade,email,phone};
+            const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/students`,payload);
+            getStudents(); 
+            setName("");    //reset form
+            setGrade("");
+            setEmail("");
+            setPhone("");
+
+        }catch(error){
+            console.log(error);
+        }
+    }
+
 
 
     //useEffect
@@ -42,7 +59,7 @@ function Student() {
 
     {/* FORM SECTION */}
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-xl p-6 mt-8">
-      <form className="space-y-4">
+      <form className="space-y-4" onSubmit={addStudent}>
 
         <input
           type="text"
@@ -77,7 +94,7 @@ function Student() {
         />
 
         <button
-          type="button"
+          type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
         >
           Save Student
