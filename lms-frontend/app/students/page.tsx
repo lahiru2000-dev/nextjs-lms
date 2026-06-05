@@ -3,15 +3,22 @@ import {useState, useEffect} from "react";
 import React from 'react'
 import axios from "axios";
 
+type studentType={
+    name:string,
+    grade:string,
+    email:string,
+    phone:string
+}
+
 function Student() {
 
-    const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState<studentType[]>([]);
 
     // get all students
     const getStudents=async()=>{
         try{
             const res=await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/students`);
-            setStudents(res.data);
+            setStudents(res.data.students);
         }catch(error){
             console.log(error);
         }
