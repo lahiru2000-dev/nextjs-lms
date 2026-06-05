@@ -4,6 +4,7 @@ import React from 'react'
 import axios from "axios";
 
 type studentType={
+    _id: String,
     name:string,
     grade:string,
     email:string,
@@ -39,6 +40,17 @@ function Student() {
             setGrade("");
             setEmail("");
             setPhone("");
+
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    //delete student
+    const deleteStudent=async(id:String)=>{
+        try{
+            const res=await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/students/${id}`);
+            getStudents();
 
         }catch(error){
             console.log(error);
@@ -129,7 +141,8 @@ function Student() {
                 <button className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600">
                   Edit
                 </button>
-                <button className="px-3 ml-2 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600">
+                <button className="px-3 ml-2 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600" 
+                onClick={()=>deleteStudent(student._id)}>
                   Delete
                 </button>
               </td>
