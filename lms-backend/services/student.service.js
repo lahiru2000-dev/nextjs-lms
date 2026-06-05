@@ -3,7 +3,8 @@ const pool = require("../config/database");
 // Add student 
 const addStudent = async (req, res) => {
   try {
-    const { student_number, name, grade, phone, email } = req.body;
+    const student_number = "STU-" + Date.now();
+    const { name, grade, phone, email } = req.body;
 
     // validation
     if (!student_number || !name || !grade || !phone || !email) {
