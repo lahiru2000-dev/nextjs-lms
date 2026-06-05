@@ -30,32 +30,68 @@ function Student() {
 
 
   return (
-    <div className="container mx-auto">
-        <table className="table-auto">
-            <thead>
-                <tr>
-                    <th className="px-4 py-2">Name</th>
-                    <th className="px-4 py-2">Grade</th>
-                    <th className="px-4 py-2">Email</th>
-                    <th className="px-4 py-2">Phone no</th>
-                    <th className="px-4 py-2">Action</th>
-                </tr>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
+    
+    <div className="w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden">
 
-            </thead>
-            <tbody>
-                {students.map((value, key)=>(
-                    <tr key={key}>
-                     <td>{value.name}</td>
-                    <td>{value.grade}</td>
-                    <td>{value.email}</td>
-                    <td>{value.phone }</td> 
-                    <td></td>
+      <table className="w-full border-collapse text-left">
 
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        {/* Table Head */}
+        <thead className="bg-gray-100 border-b">
+          <tr>
+            <th className="px-6 py-4 text-sm font-semibold text-gray-700">
+              Name
+            </th>
+            <th className="px-6 py-4 text-sm font-semibold text-gray-700">
+              Grade
+            </th>
+            <th className="px-6 py-4 text-sm font-semibold text-gray-700">
+              Email
+            </th>
+            <th className="px-6 py-4 text-sm font-semibold text-gray-700">
+              Phone
+            </th>
+            <th className="px-6 py-4 text-sm font-semibold text-gray-700">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+
+          {students.map((student, index) => (
+            <tr
+              key={index}
+              className="hover:bg-gray-50 transition"
+            >
+              <td className="px-6 py-4 text-gray-800">
+                {student.name}
+              </td>
+
+              <td className="px-6 py-4 text-gray-800">
+                {student.grade}
+              </td>
+
+              <td className="px-6 py-4 text-gray-800">
+                {student.email}
+              </td>
+
+              <td className="px-6 py-4 text-gray-800">
+                {student.phone}
+              </td>
+
+              <td className="px-6 py-4">
+                <button className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600">
+                  Edit
+                </button>
+              </td>
+            </tr>
+          ))}
+
+        </tbody>
+      </table>
+
     </div>
+  </div>
   )
 }
 
