@@ -13,6 +13,10 @@ type studentType={
 function Student() {
 
     const [students, setStudents] = useState<studentType[]>([]);
+    const [name, setName] = useState<string>("");
+    const [grade, setGrade] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [phone, setPhone] = useState<string>("");
 
     // get all students
     const getStudents=async()=>{
@@ -27,6 +31,7 @@ function Student() {
     useEffect(()=>{
         getStudents();
     },[])
+    
 
 
   return (
