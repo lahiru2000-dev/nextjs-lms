@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const studentRoutes = require("./routes/student.routes");
+const userRoutes = require("./routes/user.routes");
 
 // DB connection
 require("./config/database");
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use("/api", studentRoutes);
+app.use("/api", userRoutes);
 
 // test route
 app.get("/", (req, res) => {
