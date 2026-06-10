@@ -12,20 +12,23 @@ function register() {
     const [grade, setGrade] = useState<string>("");
 
     //register function
-    const register=async()=>{
-      try {
-        const payload={name,email,password,role,grade};
-        const res=await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,payload);
-        alert("Registration successful");
-        console.log(res.data);
-        
-      } catch (error) {
-        console.log(error);
-        
-      }
+    const register = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const payload = { name, email, password, role, grade };
+
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+        payload
+      );
+
+      alert("Registration successful");
+      console.log(res.data);
+    } catch (error) {
+      console.error(error);
     }
-
-
+  };
 
   return (
     <div>
