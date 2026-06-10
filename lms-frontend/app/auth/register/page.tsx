@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 
-function register() {
+function Register() {
     //usestate
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -19,7 +19,7 @@ function register() {
       const payload = { name, email, password, role, grade };
 
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/register`,
         payload
       );
 
@@ -90,7 +90,7 @@ function register() {
   )
 }
 
-export default register
+export default Register
 
 
 
