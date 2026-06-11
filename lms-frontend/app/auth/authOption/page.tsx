@@ -28,6 +28,15 @@ function AuthOption() {
                     className="w-30 h-30 object-contain"
                 />
             </div>
+             <div>
+                <h2 className="text-2xl font-bold text-indigo-950 tracking-tight mb-2">
+                Join as a Student
+                </h2>
+                <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
+                Access curated courses, track your progress, and learn at your own pace.
+                </p>
+            </div>
+            
             </div>
 
         </div>
