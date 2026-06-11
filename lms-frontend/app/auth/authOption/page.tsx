@@ -20,6 +20,15 @@ function AuthOption() {
             <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-white/20 to-white/80 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-white/20 to-white/80 pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-white/20 to-white/80 pointer-events-none" />
+            <div className="relative flex flex-col items-center text-center gap-6 z-10">    
+            <div className="w-40 h-40 rounded-2xl bg-white shadow-md flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                <img
+                    src="/authOption/student-join.jpg"
+                    alt="Student Icon"
+                    className="w-30 h-30 object-contain"
+                />
+            </div>
+            </div>
 
         </div>
 
