@@ -79,6 +79,12 @@ function AuthOption() {
         </div>
 
         </div>
+        {/* ── Centre OR badge ── */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+        <div className="w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center">
+          <span className="text-xs font-bold text-gray-400">OR</span>
+        </div>
+      </div>
 
 
     </div>
