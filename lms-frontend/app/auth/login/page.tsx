@@ -109,7 +109,7 @@ function Login() {
             {/* Submit */}
             <button
               type="submit"
-              className="mt-2 h-10 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white text-sm font-semibold rounded-lg transition-all"
+              className="mt-2 h-10 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white text-sm font-semibold rounded-lg transition-all cursor-pointer"
             >
               Sign in
             </button>
