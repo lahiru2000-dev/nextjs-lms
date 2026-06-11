@@ -36,6 +36,12 @@ function AuthOption() {
                 Access curated courses, track your progress, and learn at your own pace.
                 </p>
             </div>
+            <button
+                className="bg-indigo-950 text-white py-2 px-4 rounded-md hover:bg-indigo-800 transition-colors duration-300"
+                onClick={()=>router.push("auth/register?role=student")}
+            >
+                Join as a Student 
+            </button>
             
             </div>
 
