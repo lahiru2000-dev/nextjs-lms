@@ -2,18 +2,27 @@
 import { useState } from "react";
 import React from "react";
 import api from "@/lib/axios";
+import { useRouter } from "next/navigation";
+import { saveAuth } from "@/lib/auth";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [error, setError]=useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
     try {
       const res = await api.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/login`,
         { email, password }
       );
+      const{token, user}=res.data;
+      saveAuth(token, user);
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
       alert("Login successful");
