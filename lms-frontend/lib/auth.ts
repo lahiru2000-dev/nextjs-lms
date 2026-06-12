@@ -16,19 +16,27 @@ export function getRole(): string | null {
   if (typeof window === "undefined") return null;
   return localStorage.getItem("role");
 }
+
+//decode and validate token
 export function getTokenPayload() {
+  if (typeof window === "undefined") return null;
   const token = localStorage.getItem("token");
   if (!token) return null;
   try {
     const payload = JSON.parse(atob(token.split(".")[1]));
-    // Check token expiry
     if (payload.exp * 1000 < Date.now()) {
-      localStorage.removeItem("token");
+      localStorage.clear();
       return null;
     }
     return payload as { id: number; role: "student" | "teacher" };
   } catch {
     return null;
   }
+}
+
+//logout
+export function logout() {
+  localStorage.clear();
+  window.location.href = "/auth/login";
 }
 
