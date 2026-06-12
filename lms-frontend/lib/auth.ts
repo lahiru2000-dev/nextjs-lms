@@ -11,6 +11,11 @@ export function getUser() {
   return user ? JSON.parse(user) : null;
 }
 
+//get currrent role
+export function getRole(): string | null {
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem("role");
+}
 export function getTokenPayload() {
   const token = localStorage.getItem("token");
   if (!token) return null;
