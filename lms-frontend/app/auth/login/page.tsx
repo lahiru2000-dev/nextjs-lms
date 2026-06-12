@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import React from "react";
-import axios from "axios";
+import api from "@/lib/axios";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
@@ -10,7 +10,7 @@ function Login() {
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
+      const res = await api.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/login`,
         { email, password }
       );
@@ -61,7 +61,6 @@ function Login() {
       {/* ── Right Form Panel ── */}
       <div className="flex-1 bg-white flex items-center justify-center px-8 py-16">
         <div className="w-full max-w-sm">
-
           {/* Header */}
           <h1 className="text-xl font-bold text-gray-900 tracking-tight mb-1">
             Sign in to your account
