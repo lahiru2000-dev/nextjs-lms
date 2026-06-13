@@ -21,7 +21,7 @@ function Herosection() {
           </p>
 
           <div className="flex gap-3 mt-8">
-            <button className="bg-transparent text-violet-900 border border-violet-600 mx-50 px-6 py-3 rounded-lg text-base font-medium hover:bg-violet-100/40 transition-colors">
+            <button className="bg-transparent text-violet-900 border border-violet-600 mx-35 px-6 py-3 rounded-lg text-base font-medium hover:bg-violet-100/40 transition-colors">
               Get started
             </button>
             {/* <button className="bg-transparent text-violet-900 border border-violet-600 px-6 py-3 rounded-lg text-base font-medium hover:bg-violet-100/40 transition-colors">
