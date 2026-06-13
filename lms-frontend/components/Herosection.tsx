@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from "next/image";
 
 function Herosection() {
   return (
@@ -30,15 +31,14 @@ function Herosection() {
         </div>
 
         {/*  Image placeholder */}
-        {/* <div className="flex-1 min-h-[360px] lg:min-h-[460px] rounded-2xl bg-white/25 border-2 border-dashed border-violet-400/50 flex flex-col items-center justify-center gap-3">
-
-          <svg className="w-12 h-12 text-violet-600" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-          <span className="text-sm text-violet-700 font-medium opacity-70">Your image here</span>
-        </div> */}
+         <div className="relative flex-1 min-h-[360px] lg:min-h-[460px]  overflow-hidden">
+        <Image
+            src="/home/hero-img.jpg"
+            alt="Hero Image"
+            fill
+            className="object-cover"
+        />
+        </div>
 
       </div>
     
