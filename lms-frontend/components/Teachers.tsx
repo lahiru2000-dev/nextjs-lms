@@ -30,8 +30,12 @@ function Teachers() {
     name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()
 
   return (
-   <div className="flex justify-start px-6 py-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 w-full">
+   <div className="w-full px-6 py-6 bg-gray-50">
+    <div className="max-w-6xl mx-auto">
+      <div className="mb-6">
+        <h1 className="text-4xl font-bold text-gray-900 tracking-tight">Subjects</h1>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {teachers.map((teacher) => (
           <div
             key={teacher.id}
@@ -39,12 +43,7 @@ function Teachers() {
           >
             {teacher.avatar ? (
               <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-indigo-100">
-                <Image
-                  src={teacher.avatar}
-                  alt={teacher.name}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={teacher.avatar} alt={teacher.name} fill className="object-cover" />
               </div>
             ) : (
               <div className="w-28 h-28 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-medium text-2xl">
@@ -61,6 +60,7 @@ function Teachers() {
         ))}
       </div>
     </div>
+  </div>
   )
 }
 
