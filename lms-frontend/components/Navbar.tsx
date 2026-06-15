@@ -13,7 +13,7 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-bold text-indigo-600"
           >
-            MyApp
+            LMS
           </Link>
 
           {/* Navigation Links */}
@@ -26,24 +26,30 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/about"
+              href="#"
               className="text-gray-700 hover:text-indigo-600 transition"
             >
-              About
+              Tutors
             </Link>
 
             <Link
               href="/services"
               className="text-gray-700 hover:text-indigo-600 transition"
             >
-              Services
+              Courses
             </Link>
 
             <Link
               href="/contact"
               className="text-gray-700 hover:text-indigo-600 transition"
             >
-              Contact
+              My Course
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-700 hover:text-indigo-600 transition"
+            >
+              Support
             </Link>
           </div>
 
