@@ -15,3 +15,5 @@ const getTeacher = async (req, res) => {
         });
     }
 };
+
+module.exports = { getTeacher };
