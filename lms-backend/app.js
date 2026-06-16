@@ -4,6 +4,7 @@ const cors = require("cors");
 const studentRoutes = require("./routes/student.routes");
 const userRoutes = require("./routes/user.routes");
 const teacherRoutes = require("./routes/teacher.routes");
+const courseRoutes = require("./routes/course.routes");
 
 // DB connection
 require("./config/database");
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", studentRoutes);
 app.use("/api", userRoutes);
 app.use("/api", teacherRoutes);
+app.use("/api", courseRoutes);
 
 // test route
 app.get("/", (req, res) => {
