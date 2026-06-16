@@ -9,6 +9,7 @@ function Register() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [grade, setGrade] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -17,13 +18,14 @@ function Register() {
   const searchParams = useSearchParams();
   const role = searchParams.get("role") as "student" | "teacher" || "student";
   const isStudent = role === "student";
+  const isTeacher = role === "teacher";
 
   const register = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
     try {
-      const payload = { name, email, password, role, grade: isStudent ? grade : null  };
+      const payload = { name, email, password, role, grade: isStudent ? grade : null , subject:isTeacher ? subject : "" };
       const res = await api.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/register`,
         payload
@@ -143,6 +145,20 @@ function Register() {
                     <option key={g} value={g}>{g}</option>
                   ))}
                 </select>
+              </div>
+            )}
+            {/* subject */}
+            {isTeacher && (
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-gray-600">Grade</label>
+                <input
+                type="text"
+                placeholder="eg:- Science"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                required
+                className="h-10 px-3 text-sm bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 focus:bg-white transition-all"
+              />
               </div>
             )}
             {/*error message*/}
