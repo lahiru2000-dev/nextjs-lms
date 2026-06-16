@@ -60,5 +60,23 @@ const addCourse = async (req, res) => {
     }
 }
 
+//get course by teacher
+const getCourseByTutor= async(req,res)=>{
+    try{
+       const {teacher_id}=req.params;
+       const result=await pool.query(`SELECT * FROM courses WHERE teacher_id=$1`,[teacher_id]);
+        return res.status(200).json({
+            success:true,
+            courses:result.rows
+        });
+    }catch(err){
+        console.error(err);
+        return res.status(500).json({
+            success:false,
+            message:"Server error"
+        });
+    }
+}
 
-module.exports={addCourse};
+
+module.exports={addCourse, getCourseByTutor};
