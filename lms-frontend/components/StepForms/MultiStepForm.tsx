@@ -37,4 +37,11 @@ function MultiStepForm({teacherId}:AddCourseFormProps) {
 
   const isStepValid= formData.course_name.trim() !=="" && formData.grade.trim() !==""; //validate step1 form 
 
+  const nextStep = ()=>{
+    if(step === 1 && !isStepValid){
+        setErrorMsg("course name and grade required")  //throw error if name and grade empty
+        return;
+    }
+  }
+
 }
