@@ -56,18 +56,15 @@ const addCourse = async (req, res) => {
             });
         }
 
-        //check duplicate course code
-        const existingCode= await pool.query(
-            `SELECT * FROM courses WHERE course_code=$1`,
-            [course_code]
-        );
-
-        if(existingCode.rows.length > 0){
-            return res.status(400).json({
-                success:false,
-                message:"Course code already exists"
-            });
-        }
+        
+        const videoFile = req.files?.video?.[0];
+        const thumbnailFile = req.files?.thumbnail?.[0];
+ 
+        const video_url = videoFile ? `/uploads/${videoFile.filename}` : null;
+        const thumbnail_url = thumbnailFile ? `/uploads/${thumbnailFile.filename}` : null;
+ 
+        // generate a unique course code on the backend
+        const course_code = await generateUniqueCourseCode(course_name);
 
         //insert course data to table
         const result = await pool.query(
