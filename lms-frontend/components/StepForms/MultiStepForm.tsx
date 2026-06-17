@@ -35,4 +35,6 @@ function MultiStepForm({teacherId}:AddCourseFormProps) {
     });
   };
 
+  const isStepValid= formData.course_name.trim() !=="" && formData.grade.trim() !==""; //validate step1 form 
+
 }
