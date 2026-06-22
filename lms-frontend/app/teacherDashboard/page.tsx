@@ -21,7 +21,7 @@ function TeacherDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const fetchCourses = async () => {
+  const fetchCourses = async () => {      // get course by tutor id
     try {
       const res = await api.get(`${process.env.NEXT_PUBLIC_API_URL}/api/courses/teacher/${user?.id}`);
       setCourses(res.data.courses || []);
@@ -31,6 +31,10 @@ function TeacherDashboard() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
 
 
 
