@@ -23,7 +23,13 @@ function Login() {
       );
       const{token, user}=res.data;
       saveAuth(token, user);
-      alert("Login successful");
+      //redirect dashboard based on role
+      if(user.role==="teacher"){
+        router.push("/teacherDashboard");
+      }else{
+        router.push("/studentDashboard");
+      }
+      
     } catch (error: any) {
       setError(error.response?.data?.message || "Login failed");
     } finally {
