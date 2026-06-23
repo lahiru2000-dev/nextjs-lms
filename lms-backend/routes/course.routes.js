@@ -13,5 +13,6 @@ router.post(
 );
 
 router.get("/courses/:teacherId", courseService.getCourseByTutor);
+router.get("/courses", courseService.getAllCourses);
 
 module.exports = router;
