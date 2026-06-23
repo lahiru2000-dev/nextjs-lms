@@ -20,6 +20,10 @@ function AllCourse() {
         }
     }
 
+    useEffect(()=>{
+        fetchCourses();
+    },[])
+
 
 
 
